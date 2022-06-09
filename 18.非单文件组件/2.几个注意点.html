@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>几个注意点</title></title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>{{msg}}</h1>
+        <School></School>
+        <School/>
+    </div>
+</body>
+    <script type="text/javascript" >
+        Vue.config.productionTip = false
+        //定义组件 jianxie
+        const s = Vue.extend({
+            name:'Syf',
+            template:`
+            <div>
+                <h2>学校的名称:{{name}}</h2>
+                <h2>学校的地址:{{address}}</h2>
+            </div>
+            `,
+            data() {
+                return {
+                    name: '南方',
+                    address:'广州'
+                };
+            },
+        });
+        new Vue({
+            el:'#root',
+            data:{
+                msg:'欢迎学习vue!'
+            },
+            components:{
+                School:s
+                // 'my-school':s'
+                // MySchool:s
+            }
+        })
+    </script>
+</html>
